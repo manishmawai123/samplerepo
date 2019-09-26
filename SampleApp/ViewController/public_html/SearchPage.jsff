@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:panelHeader text="PaymentTermEO" id="ph1">
+      <af:query id="qryId1" headerText="Search"
+                value="#{bindings.SearchPaymentVOCriteriaQuery.queryDescriptor}"
+                model="#{bindings.SearchPaymentVOCriteriaQuery.queryModel}"
+                queryListener="#{bindings.SearchPaymentVOCriteriaQuery.processQuery}"
+                queryOperationListener="#{bindings.SearchPaymentVOCriteriaQuery.processQueryOperation}"
+                saveQueryMode="hidden" disclosed="true" rows="1" maxColumns="2"/>
+    </af:panelHeader>
+    <af:panelGroupLayout id="pgl2" layout="vertical">
+      <af:panelCollection id="pc1" styleClass="AFStretchWidth">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t2">
+            <af:button text="Create" id="b1" action="GoDetail"/>
+          </af:toolbar>
+        </f:facet>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.SearchPaymentVO1.collectionModel}" var="row"
+                  rows="#{bindings.SearchPaymentVO1.rangeSize}"
+                  emptyText="#{bindings.SearchPaymentVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.SearchPaymentVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.SearchPaymentVO1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.SearchPaymentVO1.rangeSize}"
+                  filterModel="#{bindings.SearchPaymentVOCriteriaQuery.queryDescriptor}" filterVisible="true"
+                  queryListener="#{bindings.SearchPaymentVOCriteriaQuery.processQuery}" varStatus="vs" id="t1">
+          <af:column sortProperty="#{bindings.SearchPaymentVO1.hints.Sno.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SearchPaymentVO1.hints.Sno.label}" id="c3">
+            <af:outputText value="#{row.Sno}" shortDesc="#{bindings.SearchPaymentVO1.hints.Sno.tooltip}" id="ot3"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SearchPaymentVO1.hints.PayTerm.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SearchPaymentVO1.hints.PayTerm.label}" id="c2">
+            <af:outputText value="#{row.PayTerm}" shortDesc="#{bindings.SearchPaymentVO1.hints.PayTerm.tooltip}"
+                           id="ot2"/>
+          </af:column>
+          <af:column sortProperty="#{bindings.SearchPaymentVO1.hints.NoOfDays.name}" filterable="true" sortable="true"
+                     headerText="#{bindings.SearchPaymentVO1.hints.NoOfDays.label}" id="c1">
+            <af:outputText value="#{row.NoOfDays}" shortDesc="#{bindings.SearchPaymentVO1.hints.NoOfDays.tooltip}"
+                           id="ot1">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.SearchPaymentVO1.hints.NoOfDays.format}"/>
+            </af:outputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelGroupLayout>
+  </af:panelGroupLayout>
+</jsp:root>

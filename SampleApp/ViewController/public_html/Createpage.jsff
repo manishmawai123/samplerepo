@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelHeader text="panelHeader 1" id="ph1">
+    <f:facet name="context"/>
+    <f:facet name="toolbar">
+      <af:toolbar id="t1">
+        <af:button text="Save" id="b1" action="save"/>
+        <af:button text="Cancel" id="b2" action="cancel" immediate="true"/>
+      </af:toolbar>
+    </f:facet>
+    <f:facet name="menuBar"/>
+    <f:facet name="legend"/>
+    <f:facet name="info"/>
+    <af:panelGroupLayout id="pgl1">
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.Sno.inputValue}" label="#{bindings.Sno.hints.label}"
+                      required="#{bindings.Sno.hints.mandatory}" columns="#{bindings.Sno.hints.displayWidth}"
+                      maximumLength="#{bindings.Sno.hints.precision}" shortDesc="#{bindings.Sno.hints.tooltip}"
+                      id="it1">
+          <f:validator binding="#{bindings.Sno.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.PayTerm.inputValue}" label="#{bindings.PayTerm.hints.label}"
+                      required="#{bindings.PayTerm.hints.mandatory}" columns="#{bindings.PayTerm.hints.displayWidth}"
+                      maximumLength="#{bindings.PayTerm.hints.precision}" shortDesc="#{bindings.PayTerm.hints.tooltip}"
+                      id="it2">
+          <f:validator binding="#{bindings.PayTerm.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.NoOfDays.inputValue}" label="#{bindings.NoOfDays.hints.label}"
+                      required="#{bindings.NoOfDays.hints.mandatory}" columns="#{bindings.NoOfDays.hints.displayWidth}"
+                      maximumLength="#{bindings.NoOfDays.hints.precision}"
+                      shortDesc="#{bindings.NoOfDays.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.NoOfDays.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.NoOfDays.format}"/>
+        </af:inputText>
+      </af:panelFormLayout>
+    </af:panelGroupLayout>
+  </af:panelHeader>
+</jsp:root>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.0.31" id="SearchPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="SearchPaymentVO1" RangeSize="25" DataControl="AppModuleDataControl" id="SearchPaymentVO1Iterator"/>
+    <searchRegion Criteria="SearchPaymentVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="SearchPaymentVO1Iterator" id="SearchPaymentVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="SearchPaymentVO1Iterator" id="SearchPaymentVO1">
+      <nodeDefinition DefName="model.SearchPaymentVO" Name="SearchPaymentVO10">
+        <AttrNames>
+          <Item Value="Sno"/>
+          <Item Value="PayTerm"/>
+          <Item Value="NoOfDays"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

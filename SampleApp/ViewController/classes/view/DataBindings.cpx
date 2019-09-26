@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.0.31" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/SearchPage.jsff" usageId="view_SearchPagePageDef"/>
+    <page path="/CreateEditFlow.xml#CreateEditFlow@CreateInsert"
+          usageId="view_CreateEditFlow_CreateEditFlow_CreateInsertPageDef"/>
+    <page path="/Createpage.jsff" usageId="view_CreatepagePageDef"/>
+    <page path="/Test.jspx" usageId="view_TestPageDef"/>
+    <page path="/CreateEditFlow.xml#CreateEditFlow@Commit" usageId="view_CreateEditFlow_CreateEditFlow_CommitPageDef"/>
+    <page path="/CreateEditFlow.xml#CreateEditFlow@Rollback"
+          usageId="view_CreateEditFlow_CreateEditFlow_RollbackPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_SearchPagePageDef" path="view.pageDefs.SearchPagePageDef"/>
+    <page id="view_CreateEditFlow_CreateEditFlow_CreateInsertPageDef"
+          path="view.pageDefs.CreateEditFlow_CreateEditFlow_CreateInsertPageDef"/>
+    <page id="view_CreatepagePageDef" path="view.pageDefs.CreatepagePageDef"/>
+    <page id="view_TestPageDef" path="view.pageDefs.TestPageDef"/>
+    <page id="view_CreateEditFlow_CreateEditFlow_CommitPageDef"
+          path="view.pageDefs.CreateEditFlow_CreateEditFlow_CommitPageDef"/>
+    <page id="view_CreateEditFlow_CreateEditFlow_RollbackPageDef"
+          path="view.pageDefs.CreateEditFlow_CreateEditFlow_RollbackPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleDataControl" Package="model"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>
